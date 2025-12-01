@@ -1,0 +1,13 @@
+# Redirects und Rewrites für Netlify/Vercel
+# https://edu-core.dev
+
+# SPA Fallback - alle Routen auf index.html
+/*    /index.html   200
+
+# Optional: HTTP zu HTTPS Redirect (wenn nicht bereits auf Server-Ebene konfiguriert)
+# https://edu-core.dev*    https://www.eduxel.dev/:splat  301!
+# https://www.edu-core.dev/*    https://www.edu-core.dev/:splat  301!
+
+# Optional: www zu non-www Redirect
+# https://www.edu-core.dev/*    https://edu-core.dev/:splat  301!
+
