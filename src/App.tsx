@@ -9,6 +9,9 @@ import Features from "./pages/Features";
 import Download from "./pages/Download";
 import Donate from "./pages/Donate";
 import About from "./pages/About";
+import Imprint from "./pages/Imprint";
+import Privacy from "./pages/Privacy";
+import WhmcsAddons from "./pages/WhmcsAddons";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +29,9 @@ const App = () => (
             <Route path="/download" element={<Download />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/about" element={<About />} />
+            <Route path="/imprint" element={<Imprint />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/whmcs-addons" element={<WhmcsAddons />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

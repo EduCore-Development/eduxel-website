@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Github, Mail, Heart, Code2, Users, Target } from "lucide-react";
+import { Github, Mail, Heart, Code2, Users, Target, Puzzle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -159,6 +159,76 @@ const AboutPage = () => {
 							der nächsten Generation."
 						</blockquote>
 						<p className="text-foreground font-medium">— Das Educore Team</p>
+					</motion.div>
+
+					{/* Products Section */}
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5 }}
+						className="mb-16"
+					>
+						<h2 className="text-2xl font-display font-bold text-foreground text-center mb-8">
+							Unsere Produkte
+						</h2>
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+							{/* Eduxel */}
+							<Link
+								to="/features"
+								className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-colors group"
+							>
+								<div className="flex items-start gap-4">
+									<div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+										<Code2 className="w-6 h-6 text-primary" />
+									</div>
+									<div className="flex-1">
+										<div className="flex items-center gap-2 mb-2">
+											<h3 className="text-lg font-semibold text-foreground">
+												Eduxel
+											</h3>
+											<span className="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary">
+												Verfügbar
+											</span>
+										</div>
+										<p className="text-sm text-muted-foreground mb-3">
+											Open-Source Schulverwaltung für Datenbanken und Inventar.
+										</p>
+										<span className="text-sm text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+											Mehr erfahren <ArrowRight className="w-4 h-4" />
+										</span>
+									</div>
+								</div>
+							</Link>
+
+							{/* WHMCS Addons */}
+							<Link
+								to="/whmcs-addons"
+								className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-colors group"
+							>
+								<div className="flex items-start gap-4">
+									<div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center shrink-0">
+										<Puzzle className="w-6 h-6 text-muted-foreground" />
+									</div>
+									<div className="flex-1">
+										<div className="flex items-center gap-2 mb-2">
+											<h3 className="text-lg font-semibold text-foreground">
+												WHMCS Addons
+											</h3>
+											<span className="px-2 py-0.5 text-xs rounded-full bg-muted text-muted-foreground">
+												In Arbeit
+											</span>
+										</div>
+										<p className="text-sm text-muted-foreground mb-3">
+											Hochwertige Erweiterungen für WHMCS – bald verfügbar.
+										</p>
+										<span className="text-sm text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+											Mehr erfahren <ArrowRight className="w-4 h-4" />
+										</span>
+									</div>
+								</div>
+							</Link>
+						</div>
 					</motion.div>
 
 					{/* CTA */}
