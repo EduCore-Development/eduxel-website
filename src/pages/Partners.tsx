@@ -3,16 +3,15 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Server, Shield, Zap, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 
 const partners = [
 	{
 		name: "Nebuliton Hosting",
-		logo: "https://api.dicebear.com/7.x/shapes/svg?seed=Nebuliton",
+		logo: "/nebuliton.png",
 		description:
 			"Professionelles Webhosting und Server-Infrastruktur. Nebuliton bietet zuverlässige Hosting-Lösungen für Unternehmen jeder Größe.",
 		features: ["99.9% Uptime", "DDoS-Schutz", "24/7 Support", "Deutsche Server"],
-		website: "https://nebuliton.de",
+		website: "https://nebuliton.io",
 		featured: true,
 	},
 ];
@@ -76,8 +75,8 @@ const PartnersPage = () => {
 								className="glass rounded-2xl p-8 lg:p-12 mb-12 max-w-4xl mx-auto"
 							>
 								<div className="flex flex-col lg:flex-row gap-8 items-center">
-									<div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center shrink-0">
-										<Server className="w-16 h-16 text-primary" />
+									<div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center shrink-0 overflow-hidden">
+										<img src={partner.logo} alt={`${partner.name} Logo`} className="w-24 h-24 object-contain" />
 									</div>
 									<div className="flex-1 text-center lg:text-left">
 										<div className="flex items-center gap-3 justify-center lg:justify-start mb-2">

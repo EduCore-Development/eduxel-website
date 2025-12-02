@@ -21,14 +21,25 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
 	{
-		name: "Christian Hagenacker",
+		name: "Ruben S.",
 		role: "Gründer & Lead Developer",
-		image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Christian",
+		image: "/ruben.png",
 		bio: "Leidenschaftlicher Entwickler mit Fokus auf Open-Source-Lösungen für den Bildungssektor.",
 		socials: {
-			github: "https://github.com/christianhagenacker",
-			email: "christian@edu-core.dev",
-			website: "https://nebuliton.de",
+			github: "https://github.com/Ruben54213",
+			email: "ruben@nebuliton.io",
+			website: "https://rubendev.de",
+		},
+	},
+	{
+		name: "Emin B.",
+		role: "Gründer & Lead Developer",
+		image: "/emin.png",
+		bio: "Leidenschaftlicher Entwickler mit Fokus auf Open-Source-Lösungen für den Bildungssektor.",
+		socials: {
+			github: "https://github.com/Eministar",
+			email: "hello@star-dev.xyz",
+			website: "https://star-dev.xyz",
 		},
 	},
 	{
@@ -73,93 +84,132 @@ const TeamPage = () => {
 					</motion.div>
 
 					{/* Team Grid */}
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-						{teamMembers.map((member, index) => (
-							<motion.div
-								key={member.name}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.5, delay: index * 0.1 }}
-								className={`p-6 rounded-2xl bg-card border ${
-									member.isHiring ? "border-primary border-dashed" : "border-border"
-								} text-center`}
-							>
-								<img
-									src={member.image}
-									alt={member.name}
-									className="w-24 h-24 rounded-full mx-auto mb-4 bg-muted"
-								/>
-								{member.isHiring && (
-									<span className="inline-block px-3 py-1 text-xs rounded-full bg-primary/10 text-primary mb-3">
-										Wir suchen dich!
-									</span>
-								)}
-								<h3 className="text-xl font-semibold text-foreground mb-1">
-									{member.name}
-								</h3>
-								<p className="text-sm text-primary mb-3">{member.role}</p>
-								<p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
-								
-								{/* Socials */}
-								<div className="flex justify-center gap-2">
-									{member.socials.github && (
-										<Button variant="ghost" size="icon" asChild>
-											<a
-												href={member.socials.github}
-												target="_blank"
-												rel="noopener noreferrer"
-												aria-label="GitHub"
-											>
-												<Github className="w-4 h-4" />
-											</a>
-										</Button>
+					<div className="max-w-5xl mx-auto mb-16">
+						{/* Zwei Gründungsmitglieder nebeneinander, zentriert */}
+						<div className="flex flex-col sm:flex-row gap-8 justify-center items-start mb-8">
+							{teamMembers.slice(0, 2).map((member, index) => (
+								<motion.div
+									key={member.name}
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.5, delay: index * 0.1 }}
+									className={`w-full sm:w-80 p-6 rounded-2xl bg-card border ${
+										member.isHiring ? "border-primary border-dashed" : "border-border"
+									} text-center`}
+								>
+									<img
+										src={member.image}
+										alt={member.name}
+										className="w-24 h-24 rounded-full mx-auto mb-4 bg-muted"
+									/>
+									{member.isHiring && (
+										<span className="inline-block px-3 py-1 text-xs rounded-full bg-primary/10 text-primary mb-3">
+											Wir suchen dich!
+										</span>
 									)}
-									{member.socials.linkedin && (
-										<Button variant="ghost" size="icon" asChild>
-											<a
-												href={member.socials.linkedin}
-												target="_blank"
-												rel="noopener noreferrer"
-												aria-label="LinkedIn"
-											>
-												<Linkedin className="w-4 h-4" />
-											</a>
-										</Button>
+									<h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
+									<p className="text-sm text-primary mb-3">{member.role}</p>
+									<p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
+									{/* Socials */}
+									<div className="flex justify-center gap-2">
+										{member.socials.github && (
+											<Button variant="ghost" size="icon" asChild>
+												<a
+													href={member.socials.github}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label="GitHub"
+												>
+													<Github className="w-4 h-4" />
+												</a>
+											</Button>
+										)}
+										{member.socials.linkedin && (
+											<Button variant="ghost" size="icon" asChild>
+												<a
+													href={member.socials.linkedin}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label="LinkedIn"
+												>
+													<Linkedin className="w-4 h-4" />
+												</a>
+											</Button>
+										)}
+										{member.socials.twitter && (
+											<Button variant="ghost" size="icon" asChild>
+												<a
+													href={member.socials.twitter}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label="Twitter"
+												>
+													<Twitter className="w-4 h-4" />
+												</a>
+											</Button>
+										)}
+										{member.socials.email && (
+											<Button variant="ghost" size="icon" asChild>
+												<a href={`mailto:${member.socials.email}`} aria-label="E-Mail">
+													<Mail className="w-4 h-4" />
+												</a>
+											</Button>
+										)}
+										{member.socials.website && (
+											<Button variant="ghost" size="icon" asChild>
+												<a
+													href={member.socials.website}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label="Website"
+												>
+													<Globe className="w-4 h-4" />
+												</a>
+											</Button>
+										)}
+									</div>
+								</motion.div>
+							))}
+						</div>
+
+						{/* Entwickler gesucht darunter, zentriert */}
+						<div className="flex justify-center">
+							{teamMembers.slice(2).map((member, index) => (
+								<motion.div
+									key={member.name}
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 0.5, delay: index * 0.1 }}
+									className={`w-full sm:w-96 p-6 rounded-2xl bg-card border ${
+										member.isHiring ? "border-primary border-dashed" : "border-border"
+									} text-center`}
+								>
+									<img
+										src={member.image}
+										alt={member.name}
+										className="w-24 h-24 rounded-full mx-auto mb-4 bg-muted"
+									/>
+									{member.isHiring && (
+										<span className="inline-block px-3 py-1 text-xs rounded-full bg-primary/10 text-primary mb-3">
+											Wir suchen dich!
+										</span>
 									)}
-									{member.socials.twitter && (
-										<Button variant="ghost" size="icon" asChild>
-											<a
-												href={member.socials.twitter}
-												target="_blank"
-												rel="noopener noreferrer"
-												aria-label="Twitter"
-											>
-												<Twitter className="w-4 h-4" />
-											</a>
-										</Button>
-									)}
-									{member.socials.email && (
-										<Button variant="ghost" size="icon" asChild>
-											<a href={`mailto:${member.socials.email}`} aria-label="E-Mail">
-												<Mail className="w-4 h-4" />
-											</a>
-										</Button>
-									)}
-									{member.socials.website && (
-										<Button variant="ghost" size="icon" asChild>
-											<a
-												href={member.socials.website}
-												target="_blank"
-												rel="noopener noreferrer"
-												aria-label="Website"
-											>
-												<Globe className="w-4 h-4" />
-											</a>
-										</Button>
-									)}
-								</div>
-							</motion.div>
-						))}
+									<h3 className="text-xl font-semibold text-foreground mb-1">{member.name}</h3>
+									<p className="text-sm text-primary mb-3">{member.role}</p>
+									<p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
+									{/* Socials (falls vorhanden) */}
+									<div className="flex justify-center gap-2">
+										{member.socials.github && (
+											<Button variant="ghost" size="icon" asChild>
+												<a href={member.socials.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+													<Github className="w-4 h-4" />
+												</a>
+											</Button>
+										)}
+									</div>
+								</motion.div>
+							))}
+						</div>
 					</div>
 
 					{/* Join CTA */}
@@ -189,7 +239,7 @@ const TeamPage = () => {
 								</a>
 							</Button>
 							<Button variant="outline" asChild>
-								<a href="mailto:contact@edu-core.dev">
+								<a href="https://discord.gg/mQM6CVQHEG">
 									<Mail className="w-5 h-5" />
 									Kontakt aufnehmen
 								</a>
