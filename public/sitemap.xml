@@ -6,7 +6,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://eduxel.dev/</loc>
+    <loc>https://edu-core.dev/</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Features Page -->
   <url>
-    <loc>https://eduxel.dev/features</loc>
+    <loc>https://edu-core.dev/features</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Download Page -->
   <url>
-    <loc>https://eduxel.dev/download</loc>
+    <loc>https://edu-core.dev/download</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Team Page -->
   <url>
-    <loc>https://eduxel.dev/team</loc>
+    <loc>https://edu-core.dev/team</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- Partners Page -->
   <url>
-    <loc>https://eduxel.dev/partners</loc>
+    <loc>https://edu-core.dev/partners</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -46,7 +46,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://eduxel.dev/about</loc>
+    <loc>https://edu-core.dev/about</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -54,7 +54,7 @@
 
   <!-- FAQ Page -->
   <url>
-    <loc>https://eduxel.dev/faq</loc>
+    <loc>https://edu-core.dev/faq</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -62,25 +62,33 @@
 
   <!-- Donate Page -->
   <url>
-    <loc>https://eduxel.dev/donate</loc>
+    <loc>https://edu-core.dev/donate</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Privacy Page -->
+  <!-- WHMCS Addons Page -->
   <url>
-    <loc>https://eduxel.dev/privacy</loc>
+    <loc>https://edu-core.dev/whmcs-addons</loc>
     <lastmod>2025-12-02</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Privacy Page -->
+  <url>
+    <loc>https://edu-core.dev/privacy</loc>
+    <lastmod>2025-12-02</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Imprint Page -->
   <url>
-    <loc>https://eduxel.dev/imprint</loc>
+    <loc>https://edu-core.dev/imprint</loc>
     <lastmod>2025-12-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 

@@ -3,15 +3,25 @@ import { Button } from "@/components/ui/button";
 import { Construction, ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const WhmcsAddonsPage = () => {
 	return (
 		<Layout>
-			<Helmet>
-				<title>WHMCS Addons - Educore Development</title>
-				<meta name="description" content="WHMCS Addons von Educore Development - Bald verfügbar." />
-			</Helmet>
+			<Seo
+				title="WHMCS Addons"
+				description="WHMCS Addons von Educore Development - Bald verfügbar."
+				url="https://edu-core.dev/whmcs-addons"
+				image="https://edu-core.dev/logo.png"
+				keywords="WHMCS Addons, WHMCS Plugins, Hosting Management"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "WebPage",
+					name: "WHMCS Addons",
+					description: "WHMCS Addons und Erweiterungen von Educore Development",
+					url: "https://edu-core.dev/whmcs-addons",
+				}}
+			/>
 
 			<section className="py-16 lg:py-24 min-h-[60vh] flex items-center">
 				<div className="container">

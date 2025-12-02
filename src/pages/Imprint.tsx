@@ -1,14 +1,24 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const ImprintPage = () => {
 	return (
 		<Layout>
-			<Helmet>
-				<title>Impressum - Eduxel</title>
-				<meta name="description" content="Impressum und rechtliche Angaben zu Eduxel und Nebuliton." />
-			</Helmet>
+			<Seo
+				title="Impressum"
+				description="Impressum und rechtliche Angaben zu Eduxel und Nebuliton."
+				url="https://edu-core.dev/imprint"
+				image="https://edu-core.dev/logo.png"
+				keywords="Impressum, Kontakt, Rechtliches, Eduxel"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "WebPage",
+					name: "Impressum",
+					description: "Rechtliche Angaben und Impressum",
+					url: "https://edu-core.dev/imprint",
+				}}
+			/>
 
 			<section className="py-16 lg:py-24">
 				<div className="container max-w-3xl">

@@ -16,7 +16,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const mainFeatures = [
   {
@@ -75,13 +75,20 @@ const additionalFeatures = [
 const Features = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Features - Eduxel Schulverwaltung</title>
-        <meta
-          name="description"
-          content="Entdecken Sie alle Features von Eduxel: Datenbank-Management, Inventarverwaltung, DSGVO-Konformität und mehr."
-        />
-      </Helmet>
+      <Seo
+        title="Features"
+        description="Entdecken Sie alle Features von Eduxel: Datenbank-Management, Inventarverwaltung, DSGVO-Konformität und mehr."
+        url="https://edu-core.dev/features"
+        image="https://edu-core.dev/logo.png"
+        keywords="Eduxel Features, Schulverwaltung Funktionen, Inventarverwaltung, DSGVO, Datenbank"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Eduxel Features",
+          description: "Alle Features und Funktionen der Eduxel Schulverwaltungssoftware",
+          url: "https://edu-core.dev/features",
+        }}
+      />
 
       <section className="py-16 lg:py-24">
         <div className="container">

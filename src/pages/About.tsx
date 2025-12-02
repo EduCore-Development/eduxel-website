@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Mail, Heart, Code2, Users, Target, Puzzle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const values = [
 	{
@@ -29,13 +29,20 @@ const values = [
 const AboutPage = () => {
 	return (
 		<Layout>
-			<Helmet>
-				<title>Über uns - Educore Development</title>
-				<meta
-					name="description"
-					content="Erfahren Sie mehr über Educore Development, das Team hinter Eduxel, und unsere Mission, Schulverwaltung zu revolutionieren."
-				/>
-			</Helmet>
+			<Seo
+				title="Über uns"
+				description="Erfahren Sie mehr über Educore Development, das Team hinter Eduxel, und unsere Mission, Schulverwaltung zu revolutionieren."
+				url="https://edu-core.dev/about"
+				image="https://edu-core.dev/logo.png"
+				keywords="Educore Development, Eduxel Team, Open Source, Schulverwaltung Mission"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "AboutPage",
+					name: "Über Eduxel",
+					description: "Die Mission und Vision hinter der Eduxel Schulverwaltungssoftware",
+					url: "https://edu-core.dev/about",
+				}}
+			/>
 
 			<section className="py-16 lg:py-24">
 				<div className="container">

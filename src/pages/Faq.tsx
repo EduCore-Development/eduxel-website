@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Mail, Github } from "lucide-react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 
 const faqs = [
@@ -57,13 +57,25 @@ const faqs = [
 const FaqPage = () => {
 	return (
 		<Layout>
-			<Helmet>
-				<title>FAQ - Häufige Fragen zu Eduxel</title>
-				<meta
-					name="description"
-					content="Häufig gestellte Fragen zu Eduxel - der Open-Source Schulverwaltungssoftware. Erfahren Sie mehr über Installation, Sicherheit und Funktionen."
-				/>
-			</Helmet>
+			<Seo
+				title="FAQ - Häufige Fragen"
+				description="Häufig gestellte Fragen zu Eduxel - der Open-Source Schulverwaltungssoftware. Erfahren Sie mehr über Installation, Sicherheit und Funktionen."
+				url="https://edu-core.dev/faq"
+				image="https://edu-core.dev/logo.png"
+				keywords="Eduxel FAQ, Häufige Fragen, Schulverwaltung Hilfe, Support"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "FAQPage",
+					mainEntity: faqs.map((faq) => ({
+						"@type": "Question",
+						name: faq.question,
+						acceptedAnswer: {
+							"@type": "Answer",
+							text: faq.answer,
+						},
+					})),
+				}}
+			/>
 
 			<section className="py-16 lg:py-24">
 				<div className="container max-w-3xl">

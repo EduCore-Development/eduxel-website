@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Twitter, Mail, Globe } from "lucide-react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 interface TeamMember {
 	name: string;
@@ -57,13 +57,36 @@ const teamMembers: TeamMember[] = [
 const TeamPage = () => {
 	return (
 		<Layout>
-			<Helmet>
-				<title>Unser Team - Educore Development</title>
-				<meta
-					name="description"
-					content="Lernen Sie das Team hinter Eduxel kennen - leidenschaftliche Entwickler für Open-Source-Schulverwaltung."
-				/>
-			</Helmet>
+			<Seo
+				title="Unser Team"
+				description="Lernen Sie das Team hinter Eduxel kennen - leidenschaftliche Entwickler für Open-Source-Schulverwaltung."
+				url="https://edu-core.dev/team"
+				image="https://edu-core.dev/logo.png"
+				keywords="Eduxel Team, Entwickler, Open Source, Schulverwaltung"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "Organization",
+					name: "Eduxel",
+					url: "https://edu-core.dev",
+					logo: "https://edu-core.dev/logo.png",
+					description:
+						"Open-Source Schulverwaltungssoftware für Bildungseinrichtungen",
+					founder: [
+						{
+							"@type": "Person",
+							name: "Ruben S.",
+							jobTitle: "Gründer & Lead Developer",
+							sameAs: "https://github.com/Ruben54213",
+						},
+						{
+							"@type": "Person",
+							name: "Emin B.",
+							jobTitle: "Gründer & Lead Developer",
+							sameAs: "https://github.com/Eministar",
+						},
+					],
+				}}
+			/>
 
 			<section className="py-16 lg:py-24">
 				<div className="container">
@@ -100,7 +123,7 @@ const TeamPage = () => {
 									<img
 										src={member.image}
 										alt={member.name}
-										className="w-24 h-24 rounded-full mx-auto mb-4 bg-muted"
+										className="w-24 h-24 rounded-full mx-auto mb-4 bg-muted object-cover"
 									/>
 									{member.isHiring && (
 										<span className="inline-block px-3 py-1 text-xs rounded-full bg-primary/10 text-primary mb-3">
@@ -187,7 +210,7 @@ const TeamPage = () => {
 									<img
 										src={member.image}
 										alt={member.name}
-										className="w-24 h-24 rounded-full mx-auto mb-4 bg-muted"
+										className="w-24 h-24 rounded-full mx-auto mb-4 bg-muted object-cover"
 									/>
 									{member.isHiring && (
 										<span className="inline-block px-3 py-1 text-xs rounded-full bg-primary/10 text-primary mb-3">

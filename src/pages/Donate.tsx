@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Heart, Coffee, Star, Rocket, Github, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const tiers = [
   {
@@ -37,13 +37,20 @@ const tiers = [
 const DonatePage = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Spenden - Eduxel unterstützen</title>
-        <meta
-          name="description"
-          content="Unterstützen Sie die Entwicklung von Eduxel mit einer Spende. 100% der Spenden fließen in die Weiterentwicklung."
-        />
-      </Helmet>
+      <Seo
+        title="Spenden"
+        description="Unterstützen Sie die Entwicklung von Eduxel mit einer Spende. 100% der Spenden fließen in die Weiterentwicklung."
+        url="https://edu-core.dev/donate"
+        image="https://edu-core.dev/logo.png"
+        keywords="Eduxel Spenden, Open Source unterstützen, Donation, Schulverwaltung fördern"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Eduxel unterstützen",
+          description: "Spenden Sie, um die Entwicklung von Eduxel zu unterstützen",
+          url: "https://edu-core.dev/donate",
+        }}
+      />
 
       <section className="py-16 lg:py-24">
         <div className="container">

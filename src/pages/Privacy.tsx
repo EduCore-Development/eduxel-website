@@ -1,14 +1,24 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const PrivacyPage = () => {
 	return (
 		<Layout>
-			<Helmet>
-				<title>Datenschutzerklärung - Eduxel</title>
-				<meta name="description" content="Datenschutzerklärung und Informationen zum Umgang mit Ihren Daten bei Eduxel." />
-			</Helmet>
+			<Seo
+				title="Datenschutzerklärung"
+				description="Datenschutzerklärung und Informationen zum Umgang mit Ihren Daten bei Eduxel."
+				url="https://edu-core.dev/privacy"
+				image="https://edu-core.dev/logo.png"
+				keywords="Datenschutz, Privacy, DSGVO, Eduxel Datenschutzerklärung"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "WebPage",
+					name: "Datenschutzerklärung",
+					description: "Datenschutzerklärung für Eduxel",
+					url: "https://edu-core.dev/privacy",
+				}}
+			/>
 
 			<section className="py-16 lg:py-24">
 				<div className="container max-w-3xl">

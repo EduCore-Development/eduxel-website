@@ -10,7 +10,7 @@ import {
   FileCode2,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const downloadOptions = [
   {
@@ -19,21 +19,7 @@ const downloadOptions = [
     version: "v1.0.0",
     filename: "eduxel-setup.exe",
     requirements: "Windows 10/11 (64-bit)",
-  },
-  {
-    os: "macOS",
-    icon: Apple,
-    version: "v1.0.0",
-    filename: "eduxel.dmg",
-    requirements: "macOS 11 Big Sur oder neuer",
-  },
-  {
-    os: "Linux",
-    icon: Terminal,
-    version: "v1.0.0",
-    filename: "eduxel.AppImage",
-    requirements: "Ubuntu 20.04+ / Debian 11+",
-  },
+  }
 ];
 
 const steps = [
@@ -46,13 +32,26 @@ const steps = [
 const DownloadPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>Download - Eduxel kostenlos herunterladen</title>
-        <meta
-          name="description"
-          content="Laden Sie Eduxel kostenlos herunter. Verfügbar für Windows, macOS und Linux. Open Source unter MIT-Lizenz."
-        />
-      </Helmet>
+      <Seo
+        title="Download"
+        description="Laden Sie Eduxel kostenlos herunter. Verfügbar für Windows, macOS und Linux. Open Source unter MIT-Lizenz."
+        url="https://edu-core.dev/download"
+        image="https://edu-core.dev/logo.png"
+        keywords="Eduxel Download, Schulverwaltung Download, Windows, macOS, Linux, Open Source"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "Eduxel",
+          operatingSystem: "Windows, macOS, Linux",
+          applicationCategory: "EducationalApplication",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "EUR",
+          },
+          downloadUrl: "https://github.com/EduCore-Development/eduxel-desktop-application/releases",
+        }}
+      />
 
       <section className="py-16 lg:py-24">
         <div className="container">

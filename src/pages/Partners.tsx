@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Server, Shield, Zap, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 
 const partners = [
 	{
@@ -37,13 +37,24 @@ const partnerBenefits = [
 const PartnersPage = () => {
 	return (
 		<Layout>
-			<Helmet>
-				<title>Partner - Eduxel</title>
-				<meta
-					name="description"
-					content="Unsere Partner unterstützen Eduxel mit Infrastruktur und Services. Entdecken Sie Nebuliton Hosting und mehr."
-				/>
-			</Helmet>
+			<Seo
+				title="Unsere Partner"
+				description="Unsere Partner unterstützen Eduxel mit Infrastruktur und Services. Entdecken Sie Nebuliton Hosting und mehr."
+				url="https://edu-core.dev/partners"
+				image="https://edu-core.dev/nebuliton.png"
+				keywords="Eduxel Partner, Nebuliton Hosting, Schulverwaltung Partner"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "CollectionPage",
+					name: "Eduxel Partner",
+					description: "Unsere Partner unterstützen Eduxel mit Infrastruktur und Services",
+					url: "https://edu-core.dev/partners",
+					about: {
+						"@type": "Organization",
+						name: "Eduxel",
+					},
+				}}
+			/>
 
 			<section className="py-16 lg:py-24">
 				<div className="container">
@@ -76,7 +87,11 @@ const PartnersPage = () => {
 							>
 								<div className="flex flex-col lg:flex-row gap-8 items-center">
 									<div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center shrink-0 overflow-hidden">
-										<img src={partner.logo} alt={`${partner.name} Logo`} className="w-24 h-24 object-contain" />
+										<img
+											src={partner.logo}
+											alt={`${partner.name} Logo`}
+											className="w-24 h-24 max-w-[96px] max-h-[96px] object-contain"
+										/>
 									</div>
 									<div className="flex-1 text-center lg:text-left">
 										<div className="flex items-center gap-3 justify-center lg:justify-start mb-2">
