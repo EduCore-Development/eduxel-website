@@ -70,6 +70,30 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  to="/team"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Team
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/partners"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Partner
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/faq"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/donate"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
