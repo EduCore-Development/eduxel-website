@@ -23,7 +23,7 @@ const mainFeatures = [
     icon: Database,
     title: "Zentrale Datenbank",
     description:
-      "Alle Schuldaten werden sicher in einer lokalen SQLite-Datenbank gespeichert. Volle Kontrolle über Ihre Daten, keine Cloud-Abhängigkeit.",
+      "Alle Schuldaten werden sicher in einer lokalen MariaDB-Datenbank gespeichert. Volle Kontrolle über Ihre Daten, keine Cloud-Abhängigkeit.",
     highlight: true,
   },
   {
