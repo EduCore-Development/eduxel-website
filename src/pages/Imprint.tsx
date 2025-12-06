@@ -57,16 +57,6 @@ const ImprintPage = () => {
 
 							<section>
 								<h2 className="text-2xl font-display font-semibold text-foreground mb-4">
-									Umsatzsteuer-ID
-								</h2>
-								<p className="text-muted-foreground">
-									Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
-									<strong>DE455508340</strong>
-								</p>
-							</section>
-
-							<section>
-								<h2 className="text-2xl font-display font-semibold text-foreground mb-4">
 									Hinweis zu Supportanfragen
 								</h2>
 								<p className="text-muted-foreground">
@@ -96,7 +86,7 @@ const ImprintPage = () => {
 
 							<section className="pt-4 border-t border-border">
 								<p className="text-sm text-muted-foreground">
-									Stand dieses Impressums: August 2025
+									Stand dieses Impressums: Dezember 2025
 								</p>
 							</section>
 						</div>
