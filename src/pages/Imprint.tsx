@@ -50,7 +50,7 @@ const ImprintPage = () => {
 									Kontakt
 								</h2>
 								<p className="text-muted-foreground">
-									E-Mail: <a href="mailto:admin@nebuliton.de" className="text-primary hover:underline">admin@nebuliton.de</a><br />
+									E-Mail: <a href="mailto:admin@nebuliton.io" className="text-primary hover:underline">admin@nebuliton.de</a><br />
 									Telefon: <a href="tel:+491756225187" className="text-primary hover:underline">+49 175 6225187</a>
 								</p>
 							</section>
