@@ -7,7 +7,7 @@ const ImprintPage = () => {
 		<Layout>
 			<Seo
 				title="Impressum"
-				description="Impressum und rechtliche Angaben zu Eduxel und Nebuliton."
+				description="Impressum und rechtliche Angaben zu Eduxel."
 				url="https://edu-core.dev/imprint"
 				image="https://edu-core.dev/logo.png"
 				keywords="Impressum, Kontakt, Rechtliches, Eduxel"
@@ -37,10 +37,10 @@ const ImprintPage = () => {
 									Angaben gemäß § 5 DDG
 								</h2>
 								<p className="text-muted-foreground">
-									Nebuliton<br />
-									Inhaber: Christian Hagenacker<br />
-									Rutkamp 4<br />
-									24111 Kiel<br />
+
+									Ruben Schultka<br />
+                                    Sternblütenweg 5<br />
+                                    12526 Berlin<br />
 									Deutschland
 								</p>
 							</section>
@@ -50,8 +50,8 @@ const ImprintPage = () => {
 									Kontakt
 								</h2>
 								<p className="text-muted-foreground">
-									E-Mail: <a href="mailto:admin@nebuliton.io" className="text-primary hover:underline">admin@nebuliton.de</a><br />
-									Telefon: <a href="tel:+491756225187" className="text-primary hover:underline">+49 175 6225187</a>
+									E-Mail: <a href="mailto:rubenschultka@gmail.com" className="text-primary hover:underline">rubenschultka@gmail.com</a><br />
+									Telefon: <a href="tel:+4915737558892" className="text-primary hover:underline">+49 157 37558892</a>
 								</p>
 							</section>
 
@@ -69,9 +69,9 @@ const ImprintPage = () => {
 									Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
 								</h2>
 								<p className="text-muted-foreground">
-									Christian Hagenacker<br />
-									Rutkamp 4<br />
-									24111 Kiel
+                                    Ruben Schultka<br />
+                                    Sternblütenweg 5<br />
+                                    12526 Berlin
 								</p>
 							</section>
 
