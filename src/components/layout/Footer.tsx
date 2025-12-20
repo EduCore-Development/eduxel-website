@@ -45,6 +45,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  to="/installer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Server Installer
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://github.com/EduCore-Development/eduxel-desktop-application"
                   target="_blank"

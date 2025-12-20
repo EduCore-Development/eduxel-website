@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Features from "./pages/Features";
 import Download from "./pages/Download";
+import Installer from "./pages/Installer";
 import Donate from "./pages/Donate";
 import About from "./pages/About";
 import Imprint from "./pages/Imprint";
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/features" element={<Features />} />
             <Route path="/download" element={<Download />} />
+            <Route path="/installer" element={<Installer />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/about" element={<About />} />
             <Route path="/imprint" element={<Imprint />} />

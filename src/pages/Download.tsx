@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Download,
@@ -8,6 +9,7 @@ import {
   CheckCircle2,
   Terminal,
   FileCode2,
+  ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Seo from "@/components/Seo";
@@ -112,7 +114,7 @@ const DownloadPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="glass rounded-2xl p-6 lg:p-8 mb-16 max-w-2xl mx-auto"
+            className="glass rounded-2xl p-6 lg:p-8 mb-8 max-w-2xl mx-auto"
           >
             <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
               <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center shrink-0">
@@ -136,6 +138,38 @@ const DownloadPage = () => {
                   Source Code
                 </a>
               </Button>
+            </div>
+          </motion.div>
+
+          {/* Linux Server Installation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="glass rounded-2xl p-6 lg:p-8 mb-16 max-w-2xl mx-auto border-primary/20 bg-primary/5"
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Terminal className="w-7 h-7 text-primary" />
+              </div>
+              <div className="flex-1 w-full overflow-hidden">
+                <h3 className="text-lg font-semibold text-foreground mb-1">
+                  Linux Server Installation
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Installieren Sie Eduxel direkt auf Ihrem Linux-Server mit nur einem Befehl.
+                </p>
+                <div className="bg-background/50 rounded-lg p-3 font-mono text-xs text-primary border border-primary/20 overflow-x-auto mb-4">
+                  <code>curl -sSL https://edu-core.dev/installer/install.sh | sudo bash</code>
+                </div>
+                <Button variant="link" className="p-0 h-auto text-primary" asChild>
+                  <Link to="/installer" className="flex items-center gap-1">
+                    Details zum Installer anzeigen
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
 
