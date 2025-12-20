@@ -104,7 +104,7 @@ const InstallerPage = () => {
                 Kopieren Sie diesen Befehl und führen Sie ihn in Ihrem Terminal aus:
               </p>
               <div className="bg-background rounded-xl p-4 font-mono text-sm md:text-base text-primary border border-border overflow-x-auto mb-6">
-                <code>curl -sSL https://edu-core.dev/installer/install.sh | sudo bash</code>
+                <code>curl -sSL https://edu-core.dev/i | sudo bash</code>
               </div>
               <div className="flex flex-wrap gap-4">
                 <Button variant="default" asChild>

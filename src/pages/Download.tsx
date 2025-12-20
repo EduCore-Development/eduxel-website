@@ -161,7 +161,7 @@ const DownloadPage = () => {
                   Installieren Sie Eduxel direkt auf Ihrem Linux-Server mit nur einem Befehl.
                 </p>
                 <div className="bg-background/50 rounded-lg p-3 font-mono text-xs text-primary border border-primary/20 overflow-x-auto mb-4">
-                  <code>curl -sSL https://edu-core.dev/installer/install.sh | sudo bash</code>
+                  <code>curl -sSL https://edu-core.dev/i | sudo bash</code>
                 </div>
                 <Button variant="link" className="p-0 h-auto text-primary" asChild>
                   <Link to="/installer" className="flex items-center gap-1">
