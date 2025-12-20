@@ -1,6 +1,9 @@
 # Redirects und Rewrites für Netlify/Vercel
 # https://edu-core.dev
 
+# Installer Redirect
+/installer/install.sh    https://raw.githubusercontent.com/EduCore-Development/eduxel-server-application-installer/main/install.sh    302
+
 # SPA Fallback - alle Routen auf index.html
 /*    /index.html   200
 
