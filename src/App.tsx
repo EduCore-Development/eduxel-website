@@ -17,8 +17,11 @@ import Team from "./pages/Team";
 import Partners from "./pages/Partners";
 import Faq from "./pages/Faq";
 import NotFound from "./pages/NotFound";
+import Redirect from "./components/Redirect";
 
 const queryClient = new QueryClient();
+
+const INSTALLER_URL = "https://raw.githubusercontent.com/EduCore-Development/eduxel-server-application-installer/main/install.sh";
 
 const App = () => (
   <HelmetProvider>
@@ -32,6 +35,8 @@ const App = () => (
             <Route path="/features" element={<Features />} />
             <Route path="/download" element={<Download />} />
             <Route path="/installer" element={<Installer />} />
+            <Route path="/i" element={<Redirect url={INSTALLER_URL} />} />
+            <Route path="/installer/install.sh" element={<Redirect url={INSTALLER_URL} />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/about" element={<About />} />
             <Route path="/imprint" element={<Imprint />} />

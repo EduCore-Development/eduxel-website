@@ -1,18 +1,5 @@
 {
   "version": 2,
-  "public": true,
-  "redirects": [
-    {
-      "source": "/i",
-      "destination": "https://raw.githubusercontent.com/EduCore-Development/eduxel-server-application-installer/main/install.sh",
-      "permanent": false
-    },
-    {
-      "source": "/installer/install.sh",
-      "destination": "https://raw.githubusercontent.com/EduCore-Development/eduxel-server-application-installer/main/install.sh",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
