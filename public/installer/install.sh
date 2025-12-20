@@ -54,6 +54,7 @@ APP_PORT=45821
 mkdir -p "$CONFIG_DIR"
 mkdir -p "$APP_DIR"
 
+# jq & Python leise installieren
 apt-get update -qq >/dev/null 2>&1
 apt-get install -qq jq python3 python3-pip >/dev/null 2>&1
 
@@ -210,22 +211,22 @@ LOGO3="\e[38;5;39mâ–Œâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–${RESE
 LOGO4="\e[38;5;33mâ–Œâ–ˆ    â–ˆâ–${RESET}"
 LOGO5="\e[38;5;27mâ–Œâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–${RESET}"
 
-SERVICE="eduxel"
-CFG="/etc/eduxel/config.json"
-
 if [[ "\$1" == "info" || "\$1" == "-info" ]]; then
-mode=\$(jq -r '.mode' "\$CFG")
-port=\$(jq -r '.app.port' "\$CFG")
-secret=\$(jq -r '.app.secret' "\$CFG")
-host=\$(jq -r '.database.host' "\$CFG")
-db=\$(jq -r '.database.database' "\$CFG")
+
+cfg="/etc/eduxel/config.json"
+
+mode=\$(jq -r '.mode' "\$cfg")
+port=\$(jq -r '.app.port' "\$cfg")
+secret=\$(jq -r '.app.secret' "\$cfg")
+host=\$(jq -r '.database.host' "\$cfg")
+db=\$(jq -r '.database.database' "\$cfg")
 
 printf "%b   ${BOLD}Eduxel Framework${RESET}\n" "\$LOGO1"
 printf "%b   Engine: python-service\n" "\$LOGO2"
 printf "%b   Version: v1.0.0\n" "\$LOGO3"
 printf "%b   Folder: /opt/eduxel\n" "\$LOGO4"
 printf "%b   Config: /etc/eduxel/config.json\n" "\$LOGO5"
-echo  "          Service: \$SERVICE.service"
+echo  "          Service: eduxel.service"
 echo  "          Mode: \$mode"
 echo  "          API-Port: \$port"
 echo  "          Secret: \$secret"
@@ -234,59 +235,11 @@ if [[ "\$mode" == "auto" ]]; then
     echo "          DB: mysql://\$host/\$db"
 fi
 
-exit 0
+exit
 fi
 
-case "\$1" in
-  start)
-    systemctl start "\$SERVICE"
-    echo "Eduxel Service gestartet."
-    exit 0
-    ;;
-  stop)
-    systemctl stop "\$SERVICE"
-    echo "Eduxel Service gestoppt."
-    exit 0
-    ;;
-  restart)
-    systemctl restart "\$SERVICE"
-    echo "Eduxel Service neu gestartet."
-    exit 0
-    ;;
-  enable)
-    systemctl enable "\$SERVICE"
-    echo "Autostart fÃ¼r Eduxel aktiviert."
-    exit 0
-    ;;
-  disable)
-    systemctl disable "\$SERVICE"
-    echo "Autostart fÃ¼r Eduxel deaktiviert."
-    exit 0
-    ;;
-  status)
-    systemctl status "\$SERVICE" --no-pager
-    exit 0
-    ;;
-  uninstall|remove)
-    echo "Dieses Kommando deinstalliert Eduxel komplett (Service, Dateien, CLI)."
-    read -p "Fortfahren? (y/N): " confirm
-    if [[ "\$confirm" == "y" || "\$confirm" == "Y" ]]; then
-      systemctl stop "\$SERVICE" 2>/dev/null
-      systemctl disable "\$SERVICE" 2>/dev/null
-      rm -f /etc/systemd/system/eduxel.service
-      systemctl daemon-reload
-      rm -rf /opt/eduxel /etc/eduxel
-      rm -f /usr/bin/eduxel
-      echo "Eduxel wurde vollstÃ¤ndig entfernt."
-    else
-      echo "Abgebrochen."
-    fi
-    exit 0
-    ;;
-esac
-
 echo "Eduxel CLI"
-echo "Usage: eduxel info|start|stop|restart|enable|disable|status|uninstall"
+echo "Usage: eduxel info"
 EOF
 
 chmod +x /usr/bin/eduxel
