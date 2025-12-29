@@ -48,12 +48,10 @@ const PrivacyPage = () => {
 								</h2>
 								<p className="text-muted-foreground">
 									Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br /><br />
-									Nebuliton<br />
-									Christian Hagenacker<br />
-									Rutkamp 4<br />
-									24111 Kiel<br />
+									Ruben Schultka<br />
+									Sternblütenweg 5<br />
+									12526 Berlin<br />
 									Deutschland<br /><br />
-									E-Mail: <a href="mailto:admin@nebuliton.de" className="text-primary hover:underline">admin@nebuliton.de</a>
 								</p>
 							</section>
 
