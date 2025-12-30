@@ -1,5 +1,43 @@
-#!/bin/bash
-# Eduxel Installer Proxy
-# Lädt die neueste Version direkt von GitHub
+#!/usr/bin/env bash
+# ==========================================================
+#  Eduxel Installer Proxy (/i)
+#  Lädt den neuesten Installer aus den GitHub Releases
+# ==========================================================
 
-curl -sSL https://raw.githubusercontent.com/EduCore-Development/eduxel-server-application-installer/main/install.sh | bash
+set -euo pipefail
+
+REPO="EduCore-Development/eduxel-server-application-installer"
+ASSET="install.sh"
+TMP="/tmp/eduxel-install.sh"
+
+fail() {
+  echo "[Eduxel] Fehler: $*" >&2
+  exit 1
+}
+
+need() {
+  command -v "$1" >/dev/null 2>&1 || fail "Fehlt: $1"
+}
+
+need curl
+need jq
+
+echo "[Eduxel] Lade neuesten Installer aus GitHub Releases…"
+
+API="https://api.github.com/repos/${REPO}/releases/latest"
+
+URL="$(
+  curl -fsSL "$API" \
+  | jq -r --arg name "$ASSET" '.assets[] | select(.name==$name) | .browser_download_url' \
+  | head -n 1
+)"
+
+if [[ -z "$URL" || "$URL" == "null" ]]; then
+  fail "Release-Asset '${ASSET}' nicht gefunden."
+fi
+
+curl -fsSL "$URL" -o "$TMP"
+chmod +x "$TMP"
+
+echo "[Eduxel] Starte Installer…"
+exec bash "$TMP" "$@"
