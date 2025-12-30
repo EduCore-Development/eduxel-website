@@ -2,6 +2,7 @@
 # ==========================================================
 #  Eduxel Installer Proxy (/i)
 #  Lädt den neuesten Installer aus den GitHub Releases
+#  Command bleibt: curl -sSL https://edu-core.dev/i | sudo bash
 # ==========================================================
 
 set -euo pipefail
@@ -10,34 +11,71 @@ REPO="EduCore-Development/eduxel-server-application-installer"
 ASSET="install.sh"
 TMP="/tmp/eduxel-install.sh"
 
-fail() {
-  echo "[Eduxel] Fehler: $*" >&2
-  exit 1
+fail() { echo "[Eduxel] Fehler: $*" >&2; exit 1; }
+
+need_root() {
+  if [[ "${EUID:-999}" -ne 0 ]]; then
+    fail "Bitte mit sudo ausführen: curl -sSL https://edu-core.dev/i | sudo bash"
+  fi
 }
 
-need() {
-  command -v "$1" >/dev/null 2>&1 || fail "Fehlt: $1"
+pm_detect() {
+  if command -v apt-get >/dev/null 2>&1; then echo apt; return; fi
+  if command -v dnf >/dev/null 2>&1; then echo dnf; return; fi
+  if command -v yum >/dev/null 2>&1; then echo yum; return; fi
+  if command -v pacman >/dev/null 2>&1; then echo pacman; return; fi
+  if command -v zypper >/dev/null 2>&1; then echo zypper; return; fi
+  if command -v apk >/dev/null 2>&1; then echo apk; return; fi
+  echo unknown
 }
 
-need curl
-need jq
+pm_install() {
+  local pm="$1"; shift
+  local pkgs=("$@")
+  case "$pm" in
+    apt)
+      apt-get update -y >/dev/null 2>&1 || true
+      DEBIAN_FRONTEND=noninteractive apt-get install -y "${pkgs[@]}" >/dev/null 2>&1
+      ;;
+    dnf) dnf install -y "${pkgs[@]}" >/dev/null 2>&1 ;;
+    yum) yum install -y "${pkgs[@]}" >/dev/null 2>&1 ;;
+    pacman) pacman -Sy --noconfirm "${pkgs[@]}" >/dev/null 2>&1 ;;
+    zypper) zypper --non-interactive in "${pkgs[@]}" >/dev/null 2>&1 ;;
+    apk) apk add --no-cache "${pkgs[@]}" >/dev/null 2>&1 ;;
+    *) fail "Kein unterstützter Package Manager gefunden." ;;
+  esac
+}
 
-echo "[Eduxel] Lade neuesten Installer aus GitHub Releases…"
+ensure_curl() {
+  if command -v curl >/dev/null 2>&1; then return; fi
+  local pm
+  pm="$(pm_detect)"
+  [[ "$pm" != "unknown" ]] || fail "Kein Package Manager gefunden, kann curl nicht installieren."
 
-API="https://api.github.com/repos/${REPO}/releases/latest"
+  echo "[Eduxel] Bootstrap: installiere curl..."
+  case "$pm" in
+    apt) pm_install "$pm" ca-certificates curl ;;
+    dnf|yum) pm_install "$pm" ca-certificates curl ;;
+    pacman) pm_install "$pm" ca-certificates curl ;;
+    zypper) pm_install "$pm" ca-certificates curl ;;
+    apk) pm_install "$pm" ca-certificates curl ;;
+  esac
 
-URL="$(
-  curl -fsSL "$API" \
-  | jq -r --arg name "$ASSET" '.assets[] | select(.name==$name) | .browser_download_url' \
-  | head -n 1
-)"
+  command -v curl >/dev/null 2>&1 || fail "curl konnte nicht installiert werden."
+}
 
-if [[ -z "$URL" || "$URL" == "null" ]]; then
-  fail "Release-Asset '${ASSET}' nicht gefunden."
-fi
+main() {
+  need_root
+  ensure_curl
 
-curl -fsSL "$URL" -o "$TMP"
-chmod +x "$TMP"
+  echo "[Eduxel] Lade neuesten Installer aus GitHub Releases..."
+  URL="https://github.com/${REPO}/releases/latest/download/${ASSET}"
 
-echo "[Eduxel] Starte Installer…"
-exec bash "$TMP" "$@"
+  curl -fsSL "$URL" -o "$TMP" || fail "Konnte ${ASSET} nicht laden (Release Asset fehlt oder URL down)."
+  chmod +x "$TMP"
+
+  echo "[Eduxel] Starte Installer..."
+  exec bash "$TMP" "$@"
+}
+
+main "$@"
